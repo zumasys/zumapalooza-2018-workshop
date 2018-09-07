@@ -1,0 +1,793 @@
+[
+{
+  "ORDERID": "10287", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "16", 
+      "UNITPRICE": 13.90, 
+      "QUANTITY": 40, 
+      "DISCOUNT": 0.15
+      }, 
+    {
+      "PRODUCTID": "34", 
+      "UNITPRICE": 11.20, 
+      "QUANTITY": 20, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 9.60, 
+      "QUANTITY": 15, 
+      "DISCOUNT": 0.15
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10324", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "35", 
+      "UNITPRICE": 14.40, 
+      "QUANTITY": 70, 
+      "DISCOUNT": 0.15
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 9.60, 
+      "QUANTITY": 30, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "16", 
+      "UNITPRICE": 13.90, 
+      "QUANTITY": 21, 
+      "DISCOUNT": 0.15
+      }, 
+    {
+      "PRODUCTID": "63", 
+      "UNITPRICE": 35.10, 
+      "QUANTITY": 80, 
+      "DISCOUNT": 0.15
+      }, 
+    {
+      "PRODUCTID": "59", 
+      "UNITPRICE": 44.00, 
+      "QUANTITY": 40, 
+      "DISCOUNT": 0.15
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10390", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "31", 
+      "UNITPRICE": 10.00, 
+      "QUANTITY": 60, 
+      "DISCOUNT": 0.10
+      }, 
+    {
+      "PRODUCTID": "35", 
+      "UNITPRICE": 14.40, 
+      "QUANTITY": 40, 
+      "DISCOUNT": 0.10
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 9.60, 
+      "QUANTITY": 45, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "72", 
+      "UNITPRICE": 27.80, 
+      "QUANTITY": 24, 
+      "DISCOUNT": 0.10
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10395", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 9.60, 
+      "QUANTITY": 28, 
+      "DISCOUNT": 0.10
+      }, 
+    {
+      "PRODUCTID": "69", 
+      "UNITPRICE": 28.80, 
+      "QUANTITY": 8, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "53", 
+      "UNITPRICE": 26.20, 
+      "QUANTITY": 70, 
+      "DISCOUNT": 0.10
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10417", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "38", 
+      "UNITPRICE": 210.80, 
+      "QUANTITY": 50, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 9.60, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.25
+      }, 
+    {
+      "PRODUCTID": "68", 
+      "UNITPRICE": 10.00, 
+      "QUANTITY": 36, 
+      "DISCOUNT": 0.25
+      }, 
+    {
+      "PRODUCTID": "77", 
+      "UNITPRICE": 10.40, 
+      "QUANTITY": 35, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10428", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 9.60, 
+      "QUANTITY": 20, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10436", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "75", 
+      "UNITPRICE": 6.20, 
+      "QUANTITY": 24, 
+      "DISCOUNT": 0.10
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 9.60, 
+      "QUANTITY": 5, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "56", 
+      "UNITPRICE": 30.40, 
+      "QUANTITY": 40, 
+      "DISCOUNT": 0.10
+      }, 
+    {
+      "PRODUCTID": "64", 
+      "UNITPRICE": 26.60, 
+      "QUANTITY": 30, 
+      "DISCOUNT": 0.10
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10454", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "16", 
+      "UNITPRICE": 13.90, 
+      "QUANTITY": 20, 
+      "DISCOUNT": 0.20
+      }, 
+    {
+      "PRODUCTID": "33", 
+      "UNITPRICE": 2.00, 
+      "QUANTITY": 20, 
+      "DISCOUNT": 0.20
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 9.60, 
+      "QUANTITY": 10, 
+      "DISCOUNT": 0.20
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10459", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "7", 
+      "UNITPRICE": 24.00, 
+      "QUANTITY": 16, 
+      "DISCOUNT": 0.05
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 9.60, 
+      "QUANTITY": 20, 
+      "DISCOUNT": 0.05
+      }, 
+    {
+      "PRODUCTID": "72", 
+      "UNITPRICE": 27.80, 
+      "QUANTITY": 40, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10466", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "11", 
+      "UNITPRICE": 16.80, 
+      "QUANTITY": 10, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 9.60, 
+      "QUANTITY": 5, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10512", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "24", 
+      "UNITPRICE": 4.50, 
+      "QUANTITY": 10, 
+      "DISCOUNT": 0.15
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 9, 
+      "DISCOUNT": 0.15
+      }, 
+    {
+      "PRODUCTID": "47", 
+      "UNITPRICE": 9.50, 
+      "QUANTITY": 6, 
+      "DISCOUNT": 0.15
+      }, 
+    {
+      "PRODUCTID": "60", 
+      "UNITPRICE": 34.00, 
+      "QUANTITY": 12, 
+      "DISCOUNT": 0.15
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10643", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "28", 
+      "UNITPRICE": 45.60, 
+      "QUANTITY": 15, 
+      "DISCOUNT": 0.25
+      }, 
+    {
+      "PRODUCTID": "39", 
+      "UNITPRICE": 18.00, 
+      "QUANTITY": 21, 
+      "DISCOUNT": 0.25
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.25
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10644", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "18", 
+      "UNITPRICE": 62.50, 
+      "QUANTITY": 4, 
+      "DISCOUNT": 0.10
+      }, 
+    {
+      "PRODUCTID": "43", 
+      "UNITPRICE": 46.00, 
+      "QUANTITY": 20, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 21, 
+      "DISCOUNT": 0.10
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10657", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "41", 
+      "UNITPRICE": 9.65, 
+      "QUANTITY": 24, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 45, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "47", 
+      "UNITPRICE": 9.50, 
+      "QUANTITY": 10, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "56", 
+      "UNITPRICE": 38.00, 
+      "QUANTITY": 45, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "60", 
+      "UNITPRICE": 34.00, 
+      "QUANTITY": 30, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "15", 
+      "UNITPRICE": 15.50, 
+      "QUANTITY": 50, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10670", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "23", 
+      "UNITPRICE": 9.00, 
+      "QUANTITY": 32, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 60, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "73", 
+      "UNITPRICE": 15.00, 
+      "QUANTITY": 50, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "67", 
+      "UNITPRICE": 14.00, 
+      "QUANTITY": 25, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "75", 
+      "UNITPRICE": 7.75, 
+      "QUANTITY": 25, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10696", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "17", 
+      "UNITPRICE": 39.00, 
+      "QUANTITY": 20, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 18, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10713", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "10", 
+      "UNITPRICE": 31.00, 
+      "QUANTITY": 18, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "26", 
+      "UNITPRICE": 31.23, 
+      "QUANTITY": 30, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "45", 
+      "UNITPRICE": 9.50, 
+      "QUANTITY": 110, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 24, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10743", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 28, 
+      "DISCOUNT": 0.05
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10813", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "2", 
+      "UNITPRICE": 19.00, 
+      "QUANTITY": 12, 
+      "DISCOUNT": 0.20
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 35, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10876", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "64", 
+      "UNITPRICE": 33.25, 
+      "QUANTITY": 20, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 21, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10943", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "13", 
+      "UNITPRICE": 6.00, 
+      "QUANTITY": 15, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "22", 
+      "UNITPRICE": 21.00, 
+      "QUANTITY": 21, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 15, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10969", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 9, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "10997", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "32", 
+      "UNITPRICE": 32.00, 
+      "QUANTITY": 50, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 20, 
+      "DISCOUNT": 0.25
+      }, 
+    {
+      "PRODUCTID": "52", 
+      "UNITPRICE": 7.00, 
+      "QUANTITY": 20, 
+      "DISCOUNT": 0.25
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "11001", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "7", 
+      "UNITPRICE": 30.00, 
+      "QUANTITY": 60, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "22", 
+      "UNITPRICE": 21.00, 
+      "QUANTITY": 25, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 25, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "55", 
+      "UNITPRICE": 24.00, 
+      "QUANTITY": 6, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "11019", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 3, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "49", 
+      "UNITPRICE": 20.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "11075", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "2", 
+      "UNITPRICE": 19.00, 
+      "QUANTITY": 10, 
+      "DISCOUNT": 0.15
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 30, 
+      "DISCOUNT": 0.15
+      }, 
+    {
+      "PRODUCTID": "76", 
+      "UNITPRICE": 18.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.15
+      }
+    ]
+  }
+,
+{
+  "ORDERID": "11077", 
+  "ORDERITEMS": [
+    {
+      "PRODUCTID": "2", 
+      "UNITPRICE": 19.00, 
+      "QUANTITY": 24, 
+      "DISCOUNT": 0.20
+      }, 
+    {
+      "PRODUCTID": "3", 
+      "UNITPRICE": 10.00, 
+      "QUANTITY": 4, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "4", 
+      "UNITPRICE": 22.00, 
+      "QUANTITY": 1, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "6", 
+      "UNITPRICE": 25.00, 
+      "QUANTITY": 1, 
+      "DISCOUNT": 0.02
+      }, 
+    {
+      "PRODUCTID": "7", 
+      "UNITPRICE": 30.00, 
+      "QUANTITY": 1, 
+      "DISCOUNT": 0.05
+      }, 
+    {
+      "PRODUCTID": "8", 
+      "UNITPRICE": 40.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.10
+      }, 
+    {
+      "PRODUCTID": "10", 
+      "UNITPRICE": 31.00, 
+      "QUANTITY": 1, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "12", 
+      "UNITPRICE": 38.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.05
+      }, 
+    {
+      "PRODUCTID": "13", 
+      "UNITPRICE": 6.00, 
+      "QUANTITY": 4, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "14", 
+      "UNITPRICE": 23.25, 
+      "QUANTITY": 1, 
+      "DISCOUNT": 0.03
+      }, 
+    {
+      "PRODUCTID": "16", 
+      "UNITPRICE": 17.45, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.03
+      }, 
+    {
+      "PRODUCTID": "20", 
+      "UNITPRICE": 81.00, 
+      "QUANTITY": 1, 
+      "DISCOUNT": 0.04
+      }, 
+    {
+      "PRODUCTID": "23", 
+      "UNITPRICE": 9.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "32", 
+      "UNITPRICE": 32.00, 
+      "QUANTITY": 1, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "39", 
+      "UNITPRICE": 18.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.05
+      }, 
+    {
+      "PRODUCTID": "41", 
+      "UNITPRICE": 9.65, 
+      "QUANTITY": 3, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "46", 
+      "UNITPRICE": 12.00, 
+      "QUANTITY": 3, 
+      "DISCOUNT": 0.02
+      }, 
+    {
+      "PRODUCTID": "52", 
+      "UNITPRICE": 7.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "55", 
+      "UNITPRICE": 24.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "60", 
+      "UNITPRICE": 34.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.06
+      }, 
+    {
+      "PRODUCTID": "64", 
+      "UNITPRICE": 33.25, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.03
+      }, 
+    {
+      "PRODUCTID": "73", 
+      "UNITPRICE": 15.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.01
+      }, 
+    {
+      "PRODUCTID": "75", 
+      "UNITPRICE": 7.75, 
+      "QUANTITY": 4, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "77", 
+      "UNITPRICE": 13.00, 
+      "QUANTITY": 2, 
+      "DISCOUNT": 0.00
+      }, 
+    {
+      "PRODUCTID": "66", 
+      "UNITPRICE": 17.00, 
+      "QUANTITY": 1, 
+      "DISCOUNT": 0.00
+      }
+    ]
+  }
+]

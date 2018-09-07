@@ -1,0 +1,206 @@
+INCLUDE jQLProperties.h
+DIM DCOLUMNS(100)
+
+CMND=SENTENCE()
+*EXECUTE "GET-LIST PAT.LIST"
+*CMND="TSORT NW.ORDERS BY ORDERDATE ORDERDATE CUSTOMERID PRODUCTID UNITPRICE"
+
+
+Result = 0
+Options = ""
+SelectList = ""
+
+*
+* Prompt for filename
+*
+*CRT "Enter FileName :":
+*INPUT FileName
+*IF FileName EQ "" THEN STOP
+
+*
+* Prompt for selection criteria
+*
+*CRT "Enter Selection Criteria :":
+*INPUT Criteria
+*IF Criteria EQ "" THEN STOP
+
+*
+* Build required JQL and compile/parse into Statement variable
+*
+*Request = "retrieve ":FileName:" ":Criteria
+! test
+
+OPTIONS="PRETTIFY"
+
+IF SYSTEM(11) THEN
+    SelectList=''
+    LOOP
+      READNEXT TEMP.ID ELSE EXIT
+      SelectList<-1>=TEMP.ID
+    REPEAT
+    Options=1
+END ELSE
+   SelectList=''
+END
+FIRST.CMND=FIELD(CMND,' ',1)
+IF FIRST.CMND[1,1]='T' THEN FIRST.CMND=FIRST.CMND[2,999]
+Request=FIRST.CMND:' ':FIELD(CMND,' ',2,9999)
+ResultCode = JQLCOMPILE(Statement, Request, Options, ErrorString)
+IF ResultCode < 0 THEN STOP ErrorString
+
+FILENAME=FIELD(CMND," ",2)
+
+OPEN "DICT",FILENAME TO DICT.FI ELSE 
+    OPEN "MD" TO DICT.FI ELSE STOP "COULD NOT OPEN DICTIONARY"
+END
+
+READ SCHEMA FROM DICT.FI, "SCHEMA" ELSE SCHEMA=""
+READ SCHEMA.JSON FROM DICT.FI, "SCHEMA.JSON" ELSE SCHEMA.JSON=""
+
+CALL WOBJ(SOBJ,"FROMSTRING","",SCHEMA.JSON,"",RERR)
+
+coljust=""
+
+COLUMNS=""
+ColumnNumber=0
+LOOP
+  ColumnNumber+=1
+  ResultCode = JQLGETPROPERTY(COLNAME,Statement,ColumnNumber,COL_PROPERTY_DICT_IID)
+  READ DICT FROM DICT.FI, COLNAME ELSE DICT=""
+  IF DICT="" AND COLNAME[1,1]="*" THEN
+    DICT="A"
+    DICT<2>=COLNAME[3,9999]
+    DICT<9>="L"
+    DICT<10>="10"
+    COLNAME=COLNAME[2,9999]
+  END
+  DCOLUMNS(ColumnNumber)=DICT
+UNTIL COLNAME="" DO
+  COLUMNS<ColumnNumber>=COLNAME
+REPEAT
+
+NUMBERCOLUMNS=ColumnNumber
+
+Status = JQLEXECUTE(Statement,SelectList)
+
+*
+* Fetch data loop
+*
+ProcessedItems = 0
+
+PRINT "["
+FIRST.PASS=1
+COLLECTION.CNTR=""
+
+LOOP
+  Status = JQLFETCH(Statement, Control, Data)
+
+WHILE Status >= 0 DO
+
+COLLECTION.CNTR=""
+
+*
+* Pick up data record
+*
+*  IF Control<1> = 0 THEN 
+*IF Control<1> < 2 THEN
+IF FIRST.PASS THEN
+    FIRST.PASS=0
+END ELSE
+    PRINT ","
+END
+
+IF 1 THEN
+   RECORDOBJ=""
+   CALL WOBJ(RECORDOBJ,"FROMSTRING","","{}","",RERR)
+   FOR X=1 TO NUMBERCOLUMNS
+      COLUMNNAME=COLUMNS<X>
+      D=Data<X>
+      DICT=DCOLUMNS(X)
+      DICT.ATT=DICT<2>
+      COLLECTION.ID=""
+      DICT.TYPE=""
+
+      IF DICT.ATT THEN
+        COLLECTION.ID=SCHEMA<DICT.ATT>
+        CALL WOBJ(SOBJ,"GET",DICT.ATT:'.type',DICT.TYPE,"",RERR)
+        CALL WOBJ(SOBJ,"GET",DICT.ATT:'.group',DICT.COLLECTION.ID,"",RERR)
+        IF DICT.COLLECTION.ID # "" THEN COLLECTION.ID=DICT.COLLECTION.ID
+        IF COLLECTION.ID # "" AND DICT.TYPE # "array" THEN
+            LOCATE COLLECTION.ID IN COLLECTION.CNTR SETTING SCHEMA.POS ELSE
+                COLLECTION.CNTR<-1>=COLLECTION.ID
+                * NEED TO PUT OUR COLLECTION ARRAY IN
+                CALL WOBJ(RECORDOBJ,"SET.ARRAY",COLLECTION.ID,"[{}]","",RERR)
+            END
+        END
+      END
+      BEGIN CASE
+        CASE DICT<7>[1,2]="MD"
+            T="SET.NUMBER"
+        CASE 1
+            T="SET.STRING"
+      END CASE
+      IF T="SET.NUMBER" THEN CONVERT "$," TO "" IN D
+      *CALL WOBJ(RECORDOBJ,T,COLUMNAME,D<1,1,1>,"",RERR)
+            NUM.VALS=DCOUNT(D,@VM)
+            *IF A=3 THEN DEBUG
+            *PRINT X,COLUMNNAME,NUM.VALS,COLLECTION.ID,DICT.TYPE
+            IF DICT.TYPE="array" OR DICT.TYPE="collection" THEN
+                *CALL WOBJ(RECORDOBJ,"SET",A.P,A,"",RERR); GOSUB debug.rec
+                *PRINT "PUTTING ARRAY AT ":A.P
+                IF COLLECTION.ID = "" OR DICT.TYPE = "array" THEN
+                    CALL WOBJ(RECORDOBJ,"SET.ARRAY",COLUMNNAME,"[]","",RERR)
+                END ELSE
+                    CALL WOBJ(RECORDOBJ,"LENGTH",COLLECTION.ID,COLLECTION.LENGTH,"",RERR)
+                END
+
+                * THIS USED TO NOT REQUIRE A VALUE
+                * CALL WOBJ(RECORDOBJ,"SET.ARRAY",A.P,"","",RERR); * ADDING OBJECTS AND ARRAYS CAN BE BLANK
+                *PRINT "DOING A -1 AT ":A.P:" TO STORE ":A
+                *CALL WOBJ(RECORDOBJ,"SET.STRING",A.P:"[0]",A,"",RERR)
+                FOR V=1 TO NUM.VALS
+
+                    THIS.V=D<1,V>
+                    NUM.SUBS=DCOUNT(THIS.V,@SVM)
+                    V.P=COLUMNNAME:"[":V-1:"]"
+
+                    IF NUM.SUBS=1 THEN
+                        *PRINT "SETTING ":V.P:" = ":THIS.V
+                        IF COLLECTION.ID # "" AND DICT.TYPE # "array" THEN
+                            IF V > COLLECTION.LENGTH THEN
+                                * WE NEED TO ADD OUR OBJECTS
+                                FOR SUB.V=COLLECTION.LENGTH+1 TO V
+                                    CALL WOBJ(RECORDOBJ,"SET.OBJECT",COLLECTION.ID:"[":SUB.V-1:"]","{}","",RERR)
+                                NEXT SUB.V
+                                COLLECTION.LENGTH=V
+                            END
+                            CALL WOBJ(RECORDOBJ,T,COLLECTION.ID:"[":V-1:"].":COLUMNNAME,THIS.V,"",RERR)
+                        END ELSE
+                            CALL WOBJ(RECORDOBJ,T,V.P,THIS.V,"",RERR)
+                        END
+                    END ELSE
+                        *PRINT "SETTING.ARRAY AT ":V.P
+                        CALL WOBJ(RECORDOBJ,"SET.ARRAY",V.P,"[]","",RERR)
+                        *CALL WOBJ(RECORDOBJ,T,V.P:"[0]",A:"-":V,"",RERR)
+                        FOR S=1 TO NUM.SUBS
+                            THIS.S=THIS.V<1,1,S>
+                            S.P=V.P:"[":S-1:"]"
+                            PRINT "SETTING ":S.P:" = ":THIS.S 
+                            CALL WOBJ(RECORDOBJ,"SET",S.P,THIS.S,"",RERR);
+                        NEXT S
+                    END
+                NEXT V
+            END ELSE
+                CALL WOBJ(RECORDOBJ,T,COLUMNNAME,D,"",RERR)
+            END
+
+   NEXT X
+   CALL WOBJ(RECORDOBJ,"TOSTRING","",RECJSON,OPTIONS,RERR)
+   PRINT RECJSON
+   *DEBUG
+ 
+    ProcessedItems++
+  END
+
+REPEAT
+PRINT "]"
