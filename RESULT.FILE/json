@@ -1,0 +1,29 @@
+{
+  "ApiInfo": {
+    "version": 1.0
+    }, 
+  "SystemInfo": {
+    "mvtype": "JBASE", 
+    "platform": "WINDOWS", 
+    "mvlicense": "123456789", 
+    "customerid": "ZUMASYS", 
+    "customfields": {
+      }
+    }, 
+  "Alarms": [
+    {
+      "AlarmCode": 1004, 
+      "AlarmVersion": 1, 
+      "AlarmData": {
+        "Disks": [
+          {
+            "disk_id": 1, 
+            "mount_point": "C:", 
+            "total_disk_mb": 254687571968, 
+            "free_disk_mb": 48119943168
+            }
+          ]
+        }
+      }
+    ]
+  }

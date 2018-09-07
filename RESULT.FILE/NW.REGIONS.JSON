@@ -1,0 +1,26 @@
+{
+  "url":"https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/regions.json",
+  "filename":"NW.REGIONS",
+  "id":"regionID",
+  "fields": [
+    {
+      "fieldname":"employeeID",
+      "pos":"0",
+      "iconv":""
+    },{
+        "fieldname":"name",
+        "pos":"1"
+    },{
+        "fieldname":"territoryID",
+        "pos":"2-@",
+        "type":"array",
+        "arrayparent":"territories"
+    },{
+        "fieldname":"name",
+        "pos":"3-@",
+        "type":"array",
+        "arrayparent":"territories"
+    }
+
+  ]
+}

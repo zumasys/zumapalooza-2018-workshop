@@ -1,0 +1,19 @@
+{
+  "url":"https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/shippers.json",
+  "filename":"NW.SHIPPERS",
+  "id":"shipperID",
+  "fields": [
+    {
+      "fieldname":"shipperID",
+      "pos":"0",
+      "iconv":""
+    },{
+        "fieldname":"companyName",
+        "pos":"1"
+    },{
+        "fieldname":"phone",
+        "pos":"2"
+    }
+
+  ]
+}
