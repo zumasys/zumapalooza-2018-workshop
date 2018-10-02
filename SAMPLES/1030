@@ -1,0 +1,2 @@
+CALL WSEND("Hello from line ":@USER.NO)
+

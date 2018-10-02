@@ -27,7 +27,7 @@ services=jremote,jodbc,http
 ;  5 = warning - show warnings
 ;  6 = errors - show any error conditions
 ;  7 = critical - show critical errors only
-loglevel = 3
+loglevel = 2
 
 ; Set the authentication mode for jodbc and jremote connections.
 ; Available options are none, user or account. This duplicates the
@@ -98,9 +98,9 @@ tcp_nodelay = true
 
 ; Set up the "account" environment variables.
 HOME=%CURDIR%
-PATH=%HOME%\bin;C:\JBASE\PMIPORTAL\BIN;%PATH%
-JBCOBJECTLIST=%HOME%\lib;C:\JBASE\PMIPORTAL\LIB
-JEDIFILEPATH=%HOME%;C:\JBASE\PMIPORTAL
+PATH=%HOME%\bin;%PATH%
+JBCOBJECTLIST=%HOME%\lib
+JEDIFILEPATH=%HOME%;
 JEDIFILENAME_MD=%HOME%\MD
 
 ; Disable debugger for common errors
@@ -108,7 +108,7 @@ JBASE_ERRMSG_ZERO_USED=2
 JBASE_ERRMSG_NON_NUMERIC=2
 JBASE_ERRMSG_DIVIDE_ZERO=2
 JBASE_ERRMSG_TRACE=0
-JBCEMULATE=jbase
+JBCEMULATE=d3
 
 ; Log runtime errors to $JBCRELEASEDIR/tmp/jbase_error_trace (see documentation before enabling this)
 ;JBASE_ERRMSG_TRACE=1

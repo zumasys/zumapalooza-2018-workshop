@@ -1,0 +1,78 @@
+* THIS IS MY NW ORDERS RTNE PROGRAM
+
+CALL WSETCONTENTTYPE("application/json")
+
+CALL WOBJ(RESULT.OBJ,"FROMSTRING","","{}","",RERR)
+
+REST.STATUS="ok"
+REST.STATUS.MSG=""
+
+OPEN "NW.ORDERS" TO FI.NW.ORDERS ELSE
+    REST.STATUS="error"
+    REST.STATUS.MSG="Could not open NW.ORDERS"
+    GOTO end.of.call
+END
+
+CALL WOBJ(RESULT.OBJ,"SET.ARRAY","records","[]","",RERR)
+*
+GOSUB get.orders
+
+end.of.call: *
+
+CALL WOBJ(RESULT.OBJ,"SET","apiversion","1.0","",RERR)
+CALL WOBJ(RESULT.OBJ,"SET","callstatus",REST.STATUS,"",RERR)
+CALL WOBJ(RESULT.OBJ,"SET","callmessage",REST.STATUS.MSG,"",RERR)
+CALL WOBJ(RESULT.OBJ,"TOSTRING","",JSON,"PRETTIFY",RERR)
+CALL WSEND(JSON)
+
+STOP
+
+get.orders: *
+
+EXECUTE "SSELECT NW.ORDERS BY ORDERDATE"
+
+CNTR=0
+LOOP
+    READNEXT ID ELSE EXIT
+    CNTR+=1
+    IF CNTR > 10 THEN
+        CLEARSELECT
+        EXIT
+    END
+
+    READ ORDER FROM FI.NW.ORDERS, ID ELSE CONTINUE
+    CALL WOBJ(ORDER.OBJ,"FROMSTRING","","{}","",RERR)
+    
+    * Add our fields to the order object
+    CALL WOBJ(ORDER.OBJ,"SET"                 ,"orderid"                 ,ID                           ,"",RERR)
+    CALL WOBJ(ORDER.OBJ,"SET"                 ,"customerid"              ,ORDER<1>                     ,"",RERR)
+    CALL WOBJ(ORDER.OBJ,"SET"                 ,"employeeid"              ,ORDER<2>                     ,"",RERR)
+    CALL WOBJ(ORDER.OBJ,"SET"                 ,"orderdate"               ,OCONV(ORDER<3>,"D4-")        ,"",RERR)
+    CALL WOBJ(ORDER.OBJ,"SET"                 ,"requiredate"             ,OCONV(ORDER<4>,"D4-")        ,"",RERR)
+    CALL WOBJ(ORDER.OBJ,"SET"                 ,"shippeddate"             ,OCONV(ORDER<5>,"D4-")        ,"",RERR)
+
+    CALL WOBJ(ORDER.OBJ,"SET.ARRAY","items","[]","",RERR)
+
+    NUMBER.ITEMS=DCOUNT(ORDER<10>,@VM)
+
+    FOR V=1 TO NUMBER.ITEMS
+        CALL WOBJ(ITEMS.OBJ,"FROMSTRING","","{}","",RERR)
+
+        CALL WOBJ(ITEMS.OBJ,"SET","productid",ORDER<10,V>,"",RERR)
+        CALL WOBJ(ITEMS.OBJ,"SET.NUMBER","unitprice",OCONV(ORDER<11,V>,"MD2"),"",RERR)
+        CALL WOBJ(ITEMS.OBJ,"SET.NUMBER","quantity",ORDER<12,V>,"",RERR)
+        CALL WOBJ(ITEMS.OBJ,"SET.NUMBER","discount",OCONV(ORDER<13,V>,"MD2"),"",RERR)
+
+        CALL WOBJ(ITEMS.OBJ,"TOSTRING","",ITEMS.JSON,"",RERR)
+        CALL WOBJ(ORDER.OBJ,"SET.OBJECT","items[-1]",ITEMS.JSON,"{}",RERR)
+    NEXT V
+        
+
+    CALL WOBJ(ORDER.OBJ,"TOSTRING","",ORDERJSON,"",RERR)
+
+    CALL WOBJ(RESULT.OBJ,"SET.OBJECT","records[-1]",ORDERJSON,"",RERR)
+
+REPEAT
+
+RETURN
+

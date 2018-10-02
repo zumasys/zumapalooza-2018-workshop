@@ -1,0 +1,4 @@
+CALL WGETVAR(NAME,"name")
+
+CALL WSEND("Hello ":NAME:" from line ":@USER.NO)
+
