@@ -1,0 +1,23 @@
+CACHE MANIFEST
+
+CACHE:
+code.js
+toolbox/bs3/dist/css/bootstrap.min.css
+toolbox/bs3/dist/fa/fonts/fontawesome-webfont.ttf
+toolbox/bs3/dist/fa/css/font-awesome.min.css
+nsb/images/192.png
+nsb/library/jquery.modal.min.js
+toolbox/bs3/dist/fa/fonts/fontawesome-webfont.woff2
+toolbox/bs3/dist/js/bootstrap.min.js
+nsb/library/jquery.modal.min.css
+nsb/images/LauncherIcon57.png
+nsb/library/hfunc.js
+nsb/library/jquery3.js
+toolbox/bs3/dist/bsFunctions.js
+toolbox/bs3/dist/fa/fonts/fontawesome-webfont.woff
+toolbox/as/dist/asStyle.css
+
+NETWORK:
+*
+
+# buildtime: 1538578157.42

@@ -1,0 +1,7 @@
+CALL WOBJ(OBJ,"FROMSTRING","","{}","",RERR)
+CALL WOBJ(OBJ,"SET","method","GET","",RERR)
+CALL WOBJ(OBJ,"SET","url","http://localhost:20002/api/nworders","",RERR)
+CALL WOBJ(OBJ,"SET","insecure","Y","",RERR)
+CALL MVDBTOOLKIT.WCALL(OBJ)
+CALL WOBJ(OBJ,"GET","response.data",RESPONSE,"",RERR)
+PRINT "LENGTH=":LEN(RESPONSE)

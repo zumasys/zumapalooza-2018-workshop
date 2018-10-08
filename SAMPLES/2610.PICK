@@ -1,0 +1,68 @@
+INCLUDE JBC.h
+
+CALL WSETCONTENTTYPE("application/json")
+
+* WOBJ(OBJ,ACTION,PARAM1,PARAM2,OPTIONS,ERRORS)
+
+CALL WSETHEADER("Access-Control-Allow-Origin","*")
+
+CALL WGETHEADER(REQUEST.METHOD,"REQUEST_METHOD")
+
+IF REQUEST.METHOD = "OPTIONS" THEN
+   CALL WSETHEADER("Access-Control-Headers"         ,"Content-Type, Authentication, Authorization"            )
+   CALL WSETHEADER("Access-Control-Allow-Headers"   ,"Content-Type, Authentication, Authorization, Cookies"   )
+   CALL WSETHEADER("Access-Control-Allow-Methods"   ,"GET,PUT,POST,DELETE"                  )
+   CALL WSEND("")
+   STOP
+END
+
+CALL WOBJ(RESPONSEOBJ,"FROMSTRING","","{}","",RERR)
+CALL.STATUS="ok"
+CALL.STATUS.MSG=""
+
+CALL WGETHEADER(AUTHORIZATION,"HTTP_AUTHORIZATION")
+
+
+CONVERT ' ' TO @AM IN AUTHORIZATION
+
+* get our type
+AUTH.TYPE=AUTHORIZATION<1>
+* get the base64 string
+AUTH.BASE64=AUTHORIZATION<2>
+* decode base64 - Universe has functions for this also
+
+AUTH.DECRYPTED=DECRYPT(AUTH.BASE64,"",JBASE_CRYPT_BASE64)
+USERNAME=FIELD(AUTH.DECRYPTED,":",1)
+PASSWORD=FIELD(AUTH.DECRYPTED,":",2)
+
+IF USERNAME="testuser" AND PASSWORD="testpassword" THEN NULL ELSE
+    CALL.STATUS="error"
+    CALL.STATUS.MSG="Invalid user name or password"
+    CALL WSETSTATUS("500")
+    GOTO end.of.call
+END
+
+CALL WOBJ(RESPONSEOBJ,"FROMSTRING","","{}","",RERR)
+
+CALL WGETVAR(NAME,"name")
+
+CALL WGETBODY(BODY)
+
+CALL WOBJ(BODYOBJ,"FROMSTRING","",BODY,"",RERR)
+
+CALL WOBJ(BODYOBJ,"GET","name",BODY.NAME,"",RERR)
+
+IF BODY.NAME # "" THEN NAME=BODY.NAME
+
+MSG="Hello ":NAME:" from line ":@USER.NO
+
+CALL WOBJ(RESPONSEOBJ,"SET","message",MSG,"",RERR)
+
+end.of.call: *
+
+CALL WOBJ(RESPONSEOBJ,"SET","status",CALL.STATUS,"",RERR)
+CALL WOBJ(RESPONSEOBJ,"SET","statusmsg",CALL.STATUS.MSG,"",RERR)
+
+CALL WOBJ(RESPONSEOBJ,"TOSTRING","",JSON,"PRETTIFY",RERR)
+
+CALL WSEND(JSON)

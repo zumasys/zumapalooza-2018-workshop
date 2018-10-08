@@ -1,0 +1,58 @@
+{
+  "!type": "Form", 
+  "HTML": null, 
+  "attributes": "", 
+  "background": "", 
+  "backgroundimage": "", 
+  "borderColor": "", 
+  "borderStyle": "solid", 
+  "borderWidth": "", 
+  "cached_js": null, 
+  "cached_js_script_hash": null, 
+  "children": [
+    {
+      "!type": "External", 
+      "file": [
+        "forms", 
+        "MainPageFrm", 
+        "Elements", 
+        "NavBar.json"
+      ]
+    }, 
+    {
+      "!type": "External", 
+      "file": [
+        "forms", 
+        "MainPageFrm", 
+        "Elements", 
+        "NavServerContainer.json"
+      ]
+    }
+  ], 
+  "class": "", 
+  "designHeight": 600, 
+  "designWidth": 900, 
+  "expanded_pmp": null, 
+  "fullScreen": "false", 
+  "height": "50", 
+  "id": "MainPageFrm", 
+  "language": "BASIC", 
+  "left": 0, 
+  "locked": false, 
+  "modal": "false", 
+  "onhide": "", 
+  "onkeypress": "", 
+  "onresize": "", 
+  "onshow": "", 
+  "openMode": "block", 
+  "parentForm": "", 
+  "position": "static", 
+  "script": null, 
+  "scroll_options": "", 
+  "scrolling": "false", 
+  "setFocusID": "", 
+  "style": "", 
+  "theme": "", 
+  "top": 0, 
+  "width": "100%"
+}

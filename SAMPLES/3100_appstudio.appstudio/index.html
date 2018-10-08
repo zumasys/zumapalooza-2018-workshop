@@ -1,0 +1,549 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sample Application</title>
+<meta name="generator" content="NSB/AppStudio 7.0.0.0rc1$nkkp" />
+<meta name='date' content='2018-10-06 15:55:06.754000' />
+<meta name='version' content='1.0.0' />
+<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no viewport-fit=cover' />
+<meta name='apple-mobile-web-app-capable' content='YES' />
+<meta name='mobile-web-app-capable' content='yes' />
+<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
+<meta name='apple-mobile-web-app-title' content='' />
+<meta name='copyright' content='Copyright 2016 ABC Company' />
+<link rel='apple-touch-icon' href='nsb/images/LauncherIcon57.png' />
+<link rel='shortcut icon' sizes='192x192' href='nsb/images/192.png' />
+<link href="toolbox/as/dist/asStyle.css" rel="stylesheet">
+<script src="nsb/library/jquery3.js"></script>
+<link href="nsb/library/jquery.modal.min.css" rel="stylesheet">
+<script src="nsb/library/jquery.modal.min.js"></script>
+<script src="nsb/library/hfunc.js"></script>
+<link href="toolbox/bs3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="toolbox/bs3/dist/js/bootstrap.min.js"></script>
+<link href="toolbox/bs3/dist/fa/css/font-awesome.min.css" rel="stylesheet">
+<script src="toolbox/bs3/dist/bsFunctions.js"></script>
+<link href="toolbox/bs3/dist/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<script src="toolbox/bs3/dist/js/jquery.dataTables.min.js"></script>
+<script src="toolbox/bs3/dist/js/dataTables.bootstrap.min.js"></script>
+
+<link href="chromeManifest.json" rel="manifest">
+
+<style type="text/css">
+
+#MainPageFrm {background:inherit;}
+#NavBar {}
+#NavMenu {}
+#NavBack {}
+#NavServerContainer { top:50px;}
+
+#LoginForm {background:inherit;}
+#LoginFormPanel { width:350px;}
+#LoginFormAlert {}
+#LoginFormUserName {}
+#LoginFormPassword {}
+#DebugServerPort {}
+#LoginFormLoginButton {}
+#LoginFormForgotPasswordButton {}
+#OrdersListForm {background:inherit;}
+#MainPanel {position:relative;}
+#GridRow2 {position:relative; width:100%;}
+#GridColumn2 {}
+#ReceiptsListSearchBy {}
+#GridColumn2Copy {}
+#MainListSearchDateFrom {}
+#MainListSearchDateTo {}
+#MainListSearchReceipt {}
+#GridColumn12 {}
+#ReceiptsSearchButton { width:80px;}
+#ReceiptsAddButton { width:80px;}
+#MainListSelectList {position:relative;}
+#OrdersEditForm {background:inherit;}
+#Panel1 {position:relative;}
+#GridRow5 { width:100%;}
+#GridColumn6 {}
+#ReceiptFormLastId {}
+#GridColumn7 {}
+#ReceiptFormReceiptNo {}
+#GridRow6 { width:100%;}
+#GridColumn8 {}
+#ReceiptFormPo {}
+#GridColumn9 {}
+#ReceiptFormReceiptDate {}
+#GridRow7 { width:100%;}
+#GridColumn10 {}
+#ReceiptFormType {}
+#GridColumn11 {}
+#ReceiptFormPackingSlipNo {}
+#SummaryButton1 {}
+#ReceiptEditSaveRiButton {}
+#ReceiptNotesButton {}
+#SummaryTable {}
+#OrdersItemForm {background:inherit;}
+#SummaryMainSubPanel {}
+#GridRow8 {}
+#GridColumn14 {}
+#SummarySubPoPos {}
+#GridColumn15 {}
+#SummarySubReceiptPos {}
+#SummarySubPartNo {}
+#SummarySubDescription {}
+#Button4 {}
+#GridRow3 {}
+#GridColumn3 { height:100px;}
+#SummarySubOrdered {}
+#GridColumn13 { height:100px;}
+#SummarySubBtnReceiveAll {}
+#GridColumn4 { height:100px;}
+#SummarySubReceived {}
+#GridColumn5 { height:100px;}
+#SummarySubBO {}
+#GridRow4 {}
+#ReceiptItemsSaveToRiButton {}
+#Inventory {}
+#ScanAnotherButton {}
+</style>
+<style>
+@media (min-width: 400px)
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9 {
+    float: left;
+}
+</style>
+
+</head>
+<body style="margin:0px;-ms-touch-action:none;font-family:-apple-system, '.SFNSText-Regular', 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue';">
+<noscript><h1>JavaScript must be enabled!</h1></noscript>
+<div data-role="page" id="NSBPage" data-theme="a" style="position:absolute; width:100%; height:100%; background-color:inherit; ">
+<a name='/MainPageFrm' data-role=none></a>
+<div id="MainPageFrm"  class="nsb-form " style="display:block;  position:static;  height: 50px; top:0px; left:0px; width:100%; ">
+<script>
+MainPageFrm.innerHTML=["",  "<div id='NavBar' class='' data-nsb-type=Header style='cursor:default; text-align:center; text-shadow:none; top:0px; left:0px; width: 100%; font-size:16px;font-family:inherit;font-weight:bold;color:white; background-color:black;  position:fixed; top:0; z-index:99' data-i18n='Montague Receiving 1.3'>","<div id=NavBar_addChild>",  NSB.bs.dropdown.make('NavMenu', '', 'dropdown', ' ', ' disabled', 'font-family:inherit;border-color:transparent; margin:0px; color:white; background-color:transparent; float:right;', 'border-color:transparent; color:white; background-color:transparent; ', ' btn-default', ' btn-lg', 'bars', ' dropdown-menu-right', 'Receipts\u000AAdmin\u000ALogout\u000A', '', '', '<span id=NavMenu_badge class=badge style=margin-left:1ch;></span>', ''),
+
+    "<button id='NavBack' data-role='none' class='btn btn-primary btn-md ' style='margin-top:2px; margin-left:2px; font-family:inherit;float: left;'><span id='NavBack_icon' class=''></span>Back<span id=NavBack_badge class=badge style=margin-left:1ch;></span></button>",,"</div>","Montague Receiving 1.3</div>",
+  "<div id='NavServerContainer' class=''  style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '>",,'',"</div>",
+  ].join('');
+</script>
+</div>
+<a name='/LoginForm' data-role=none></a>
+<div id="LoginForm"  class="nsb-form " style="display:none;  position:static;  height: auto; top:0px; left:0px; width:auto; align:center">
+<script>
+LoginForm.innerHTML=["",    "<div id='LoginFormPanel' class='panel  panel-primary' style='margin-left:auto; margin-right:auto; font-family:inherit;'>",
+      "<div class='panel-heading'><h3 class='panel-title'>Login<span id=LoginFormPanel_badge class=badge style=margin-left:1ch;></span></h3></div>",
+        "<div id=LoginFormPanel_addChild>",
+        "<div class='panel-body'>",  "<div id='LoginFormAlert' class='alert alert-success ' style='font-family:inherit;display:none; '><button type='button' class='close' <span>&times;</span></button>Alert Box Message<span id=LoginFormAlert_badge class=badge style=margin-left:1ch;></span></div>",
+  "<div id=LoginFormUserName data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-3' for=LoginFormUserName_contents>User Id</label>",
+    "<div class='col-sm-9'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=LoginFormUserName_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='LoginFormUserName_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='User Id'   style='' class='form-control input-sm ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",
+  "<div id=LoginFormPassword data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-3' for=LoginFormPassword_contents>Password</label>",
+    "<div class='col-sm-9'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=LoginFormPassword_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='LoginFormPassword_contents' type='password' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='Password'   style='' class='form-control input-sm ' >",
+      "</div>",
+      "<span class='help-block'><b></b></span></div>",
+  "</div></div>",
+  "<div id=DebugServerPort data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-3' for=DebugServerPort_contents>Server</label>",
+    "<div class='col-sm-9'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=DebugServerPort_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='DebugServerPort_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='Path to api'   style='' class='form-control input-sm ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",
+
+    "<button id='LoginFormLoginButton' data-role='none' class='btn btn-primary btn-md ' style='margin-right:5px; font-family:inherit;float: left;'><span id='LoginFormLoginButton_icon' class=''></span>Login<span id=LoginFormLoginButton_badge class=badge style=margin-left:1ch;></span></button>",
+
+    "<button id='LoginFormForgotPasswordButton' data-role='none' class='btn btn-danger btn-md ' style='font-family:inherit;'><span id='LoginFormForgotPasswordButton_icon' class=''></span>Forgot Password<span id=LoginFormForgotPasswordButton_badge class=badge style=margin-left:1ch;></span></button>","</div>",
+        "</div>",
+    "</div>",
+  ].join('');
+</script>
+</div>
+<a name='/OrdersListForm' data-role=none></a>
+<div id="OrdersListForm"  class="nsb-form " style="display:none;  position:relative;  height: 460px; top:auto; left:auto; width:100%; ">
+<script>
+OrdersListForm.innerHTML=["",    "<div id='MainPanel' class='panel  panel-primary' style='margin:5px; font-family:inherit;'>",
+      "<div class='panel-heading'><h3 class='panel-title'>Receipts<span id=MainPanel_badge class=badge style=margin-left:1ch;></span></h3></div>",
+        "<div id=MainPanel_addChild>",
+        "<div class='panel-body'>",  "<div id='GridRow2' style='font-family:inherit;margin-left:0px; margin-right:0px; border-width:1px; border-color:#E0E0E0; '  class='row '>","<div id=GridRow2_addChild>",  "<div id='GridColumn2' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-4 col-sm-4 col-md-4 col-lg-4 '>","<div id=GridColumn2_addChild>",  "<div id=ReceiptsListSearchBy data-role='none' class='form-group ' style='font-family:inherit;' ><label id=ReceiptsListSearchBy_header class='control-label' for=ReceiptsListSearchBy_contents>Search By</label><span id=ReceiptsListSearchBy_badge class=badge style=margin-left:1ch;></span>",
+    NSB.bs.radiobutton.make('ReceiptsListSearchBy', 'font-family:inherit;', '', 'Receipt\u000A>Date', ''),
+    "</div>",,"</div>","</div>",
+  "<div id='GridColumn2Copy' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-4 col-sm-4 col-md-4 col-lg-6 '>","<div id=GridColumn2Copy_addChild>",  "<div id=MainListSearchDateFrom data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-2' for=MainListSearchDateFrom_contents>Date Range</label>",
+    "<div class='col-sm-10'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=MainListSearchDateFrom_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='MainListSearchDateFrom_contents' type='date' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='Enter text here'   style='' class='form-control input-sm ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",
+  "<div id=MainListSearchDateTo data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'>",
+    "<div class='col-sm-12'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=MainListSearchDateTo_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='MainListSearchDateTo_contents' type='date' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='To Date'   style='' class='form-control input-sm ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",
+  "<div id=MainListSearchReceipt data-role='none' class='form-horizontal ' style='display:none; font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-2' for=MainListSearchReceipt_contents>Receipt #</label>",
+    "<div class='col-sm-10'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=MainListSearchReceipt_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='MainListSearchReceipt_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='Receipt #'   style='' class='form-control input-sm ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",,"</div>","</div>",
+  "<div id='GridColumn12' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-4 col-sm-4 col-md-4 col-lg-4 '>","<div id=GridColumn12_addChild>",
+    "<button id='ReceiptsSearchButton' data-role='none' class='btn btn-primary btn-md ' style='margin-bottom:5px; font-family:inherit;'><span id='ReceiptsSearchButton_icon' class=''></span>Search<span id=ReceiptsSearchButton_badge class=badge style=margin-left:1ch;></span></button>",
+
+    "<button id='ReceiptsAddButton' data-role='none' class='btn btn-warning btn-md ' style='margin-bottom:5px; font-family:inherit;'><span id='ReceiptsAddButton_icon' class=''></span>Add<span id=ReceiptsAddButton_badge class=badge style=margin-left:1ch;></span></button>",,"</div>","</div>",,"</div>","</div>",
+  "<table id='MainListSelectList' class='table table-striped table-bordered'  style='font-family:inherit;width: 100%;'>",
+  "</table>","</div>",
+        "</div>",
+    "</div>",
+  ].join('');
+</script>
+</div>
+<a name='/OrdersEditForm' data-role=none></a>
+<div id="OrdersEditForm"  class="nsb-form " style="display:none;  position:relative;  height: 100vh; top:0px; left:px; width:100%; ">
+<script>
+OrdersEditForm.innerHTML=["",    "<div id='Panel1' class='panel  panel-primary' style='margin:5px; font-family:inherit;'>",
+      "<div class='panel-heading'><h3 class='panel-title'>Receipt<span id=Panel1_badge class=badge style=margin-left:1ch;></span></h3></div>",
+        "<div id=Panel1_addChild>",
+        "<div class='panel-body'>",  "<div id='GridRow5' style='font-family:inherit;margin-left:0px; margin-right:0px; border-width:1px; border-color:#E0E0E0; '  class='row '>","<div id=GridRow5_addChild>",  "<div id='GridColumn6' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-6 col-sm-6 col-md-6 col-lg-6 '>","<div id=GridColumn6_addChild>",  "<div id=ReceiptFormLastId data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-4' for=ReceiptFormLastId_contents>Last ID#</label>",
+    "<div class='col-sm-8'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=ReceiptFormLastId_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='ReceiptFormLastId_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='Enter text here' readonly   style='' class='form-control input-lg ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",,"</div>","</div>",
+  "<div id='GridColumn7' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-6 col-sm-6 col-md-6 col-lg-6 '>","<div id=GridColumn7_addChild>",  "<div id=ReceiptFormReceiptNo data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-4' for=ReceiptFormReceiptNo_contents>Receipt #</label>",
+    "<div class='col-sm-8'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=ReceiptFormReceiptNo_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='ReceiptFormReceiptNo_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='Receipt #' disabled   style='' class='form-control input-lg ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",,"</div>","</div>",,"</div>","</div>",
+  "<div id='GridRow6' style='font-family:inherit;margin-left:0px; margin-right:0px; border-width:1px; border-color:#E0E0E0; '  class='row '>","<div id=GridRow6_addChild>",  "<div id='GridColumn8' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-6 col-sm-6 col-md-6 col-lg-6 '>","<div id=GridColumn8_addChild>",  "<div id=ReceiptFormPo data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-4' for=ReceiptFormPo_contents>PO#</label>",
+    "<div class='col-sm-8'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=ReceiptFormPo_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='ReceiptFormPo_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='PO #'   style='' class='form-control input-lg ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",,"</div>","</div>",
+  "<div id='GridColumn9' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-6 col-sm-6 col-md-6 col-lg-6 '>","<div id=GridColumn9_addChild>",  "<div id=ReceiptFormReceiptDate data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-4' for=ReceiptFormReceiptDate_contents>Receipt-Date</label>",
+    "<div class='col-sm-8'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=ReceiptFormReceiptDate_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='ReceiptFormReceiptDate_contents' type='date' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='Receipt Date'   style='' class='form-control input-lg ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",,"</div>","</div>",,"</div>","</div>",
+  "<div id='GridRow7' style='font-family:inherit;margin-left:0px; margin-right:0px; border-width:1px; border-color:#E0E0E0; '  class='row '>","<div id=GridRow7_addChild>",  "<div id='GridColumn10' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-6 col-sm-6 col-md-6 col-lg-6 '>","<div id=GridColumn10_addChild>",  "<div id=ReceiptFormType data-role='none' class='form-group ' style='font-family:inherit;' ><label id=ReceiptFormType_header class='control-label' for=ReceiptFormType_contents>Type</label><span id=ReceiptFormType_badge class=badge style=margin-left:1ch;></span>",
+    NSB.bs.select.make('ReceiptFormType', 'font-family:inherit;', '', '> N - Normal\u000AA - Adjustment', '', ''),
+    "</div>",,"</div>","</div>",
+  "<div id='GridColumn11' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-6 col-sm-6 col-md-6 col-lg-6 '>","<div id=GridColumn11_addChild>",  "<div id=ReceiptFormPackingSlipNo data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-4' for=ReceiptFormPackingSlipNo_contents>Packing-SLIP#</label>",
+    "<div class='col-sm-8'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=ReceiptFormPackingSlipNo_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='ReceiptFormPackingSlipNo_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='Enter text here'   style='' class='form-control input-lg ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",,"</div>","</div>",,"</div>","</div>",
+
+    "<button id='SummaryButton1' data-role='none' class='btn btn-primary btn-lg ' style='margin-right:10px; font-family:inherit;float: left'><span id='SummaryButton1_icon' class=''></span>Scan Receive<span id=SummaryButton1_badge class=badge style=margin-left:1ch;></span></button>",
+
+    "<button id='ReceiptEditSaveRiButton' data-role='none' class='btn btn-success btn-lg ' style='margin-right:20px; font-family:inherit;float: left;'><span id='ReceiptEditSaveRiButton_icon' class=''></span>Save to RI<span id=ReceiptEditSaveRiButton_badge class=badge style=margin-left:1ch;></span></button>",
+
+    "<button id='ReceiptNotesButton' data-role='none' class='btn btn-danger btn-lg ' style='font-family:inherit;'><span id='ReceiptNotesButton_icon' class=''></span>Notes<span id=ReceiptNotesButton_badge class=badge style=margin-left:1ch;></span></button>",
+  "<table id='SummaryTable' class='table table-striped table-bordered'  style='font-family:inherit;width: 100%'>",
+  "</table>","</div>",
+        "</div>",
+    "</div>",
+  ].join('');
+</script>
+</div>
+<a name='/OrdersItemForm' data-role=none></a>
+<div id="OrdersItemForm"  class="nsb-form " style="display:none;  position:static;  height: 800px; top:0px; left:0px; width:100%; ">
+<script>
+OrdersItemForm.innerHTML=["",    "<div id='SummaryMainSubPanel' class='panel  panel-primary' style='font-family:inherit;'>",
+      "<div class='panel-heading'><h3 class='panel-title'>Receipt of Product<span id=SummaryMainSubPanel_badge class=badge style=margin-left:1ch;></span></h3></div>",
+        "<div id=SummaryMainSubPanel_addChild>",
+        "<div class='panel-body'>",  "<div id='GridRow8' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='row '>","<div id=GridRow8_addChild>",  "<div id='GridColumn14' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-6 col-sm-6 col-md-6 col-lg-6 '>","<div id=GridColumn14_addChild>",  "<div id=SummarySubPoPos data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-2' for=SummarySubPoPos_contents>Po Pos</label>",
+    "<div class='col-sm-10'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=SummarySubPoPos_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='SummarySubPoPos_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='PO Pos' disabled   style='' class='form-control input-sm ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",,"</div>","</div>",
+  "<div id='GridColumn15' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-6 col-sm-6 col-md-6 col-lg-6 '>","<div id=GridColumn15_addChild>",  "<div id=SummarySubReceiptPos data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-2' for=SummarySubReceiptPos_contents>Receipt Pos</label>",
+    "<div class='col-sm-10'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=SummarySubReceiptPos_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='SummarySubReceiptPos_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='Receipt Pos' disabled   style='' class='form-control input-sm ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",,"</div>","</div>",,"</div>","</div>",
+  "<div id=SummarySubPartNo data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-2' for=SummarySubPartNo_contents>Part #</label>",
+    "<div class='col-sm-10'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=SummarySubPartNo_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='SummarySubPartNo_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='Part #' disabled   style='' class='form-control input-lg ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",
+  "<div id=SummarySubDescription data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-2' for=SummarySubDescription_contents>Description</label>",
+    "<div class='col-sm-10'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=SummarySubDescription_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='SummarySubDescription_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='Description' disabled   style='' class='form-control input-lg ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",
+
+    "<button id='Button4' data-role='none' class='btn btn-danger btn-lg ' style='font-family:inherit;'><span id='Button4_icon' class=''></span>Notes<span id=Button4_badge class=badge style=margin-left:1ch;></span></button>",
+  "<div id='GridRow3' style='font-family:inherit;margin-left:0px; margin-right:0px; border-width:1px; border-color:#E0E0E0; '  class='row '>","<div id=GridRow3_addChild>",  "<div id='GridColumn3' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-3 col-sm-3 col-md-3 col-lg-3 '>","<div id=GridColumn3_addChild>",  "<div id=SummarySubOrdered data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-2' for=SummarySubOrdered_contents>Ordered</label>",
+    "<div class='col-sm-10'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=SummarySubOrdered_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='SummarySubOrdered_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='##' readonly   style='' class='form-control input-lg ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",,"</div>","</div>",
+  "<div id='GridColumn13' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-3 col-sm-3 col-md-3 col-lg-3 '>","<div id=GridColumn13_addChild>",
+    "<button id='SummarySubBtnReceiveAll' data-role='none' class='btn btn-success btn-lg ' style='margin-top:25px; font-family:inherit;'><span id='SummarySubBtnReceiveAll_icon' class=''></span>=><span id=SummarySubBtnReceiveAll_badge class=badge style=margin-left:1ch;></span></button>",,"</div>","</div>",
+  "<div id='GridColumn4' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-3 col-sm-3 col-md-3 col-lg-3 '>","<div id=GridColumn4_addChild>",  "<div id=SummarySubReceived data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-2' for=SummarySubReceived_contents>Recvd</label>",
+    "<div class='col-sm-10'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=SummarySubReceived_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='SummarySubReceived_contents' type='text' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='##'   style='' class='form-control input-lg ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",,"</div>","</div>",
+  "<div id='GridColumn5' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; '  class='col-xs-3 col-sm-3 col-md-3 col-lg-3 '>","<div id=GridColumn5_addChild>",  "<div id=SummarySubBO data-role='none' class='form-horizontal ' style='font-family:inherit;'>",
+  "<div class='form-group'><label class='control-label col-sm-2' for=SummarySubBO_contents>B/O</label>",
+    "<div class='col-sm-10'>",
+      "<div class='input-group' style='width:100%;'>",
+        "<span id=SummarySubBO_badge class=badge style=margin-bottom:4px;></span>",
+        "<input id='SummarySubBO_contents' type='number' autocapitalize=on autocorrect=on autocomplete=on spellcheck=true placeholder='##' readonly   style='' class='form-control input-lg ' >",
+      "</div>",
+      "</div>",
+  "</div></div>",,"</div>","</div>",,"</div>","</div>",
+  "<div id='GridRow4' style='font-family:inherit;border-width:1px; border-color:#E0E0E0; align: center'  class='row text-center'>","<div id=GridRow4_addChild>",  "<div id='ReceiptItemsSaveToRiButton_group' class='btn-group' role='group'>",
+    "<button id='ReceiptItemsSaveToRiButton' data-role='none' class='btn btn-success btn-lg ' style='font-family:inherit;'><span id='ReceiptItemsSaveToRiButton_icon' class=''></span>Update<span id=ReceiptItemsSaveToRiButton_badge class=badge style=margin-left:1ch;></span></button>",
+
+    "<button id='Inventory' data-role='none' class='btn btn-warning btn-lg ' style='font-family:inherit;display:none; '><span id='Inventory_icon' class=''></span>Inventory<span id=Inventory_badge class=badge style=margin-left:1ch;></span></button>",
+
+    "<button id='ScanAnotherButton' data-role='none' class='btn btn-primary btn-lg ' style='font-family:inherit;'><span id='ScanAnotherButton_icon' class=''></span>Update/Scan Another<span id=ScanAnotherButton_badge class=badge style=margin-left:1ch;></span></button>",
+  "</div>",,"</div>","</div>","</div>",
+        "</div>",
+      "<div class='panel-footer'>Footer</div>",
+    "</div>",
+  ].join('');
+</script>
+</div>
+</div>
+<script>
+if(!navigator.cookieEnabled) NSB.MsgBox('Please turn cookies on.');
+(function(){var all=document.getElementsByTagName('*');for(var i=0;i<all.length;i++)if(all[i].id!=''&&typeof all[i].id!='undefined'&&typeof window[all[i].id]=='undefined')window[all[i].id]=all[i];})()
+var NSB = NSB || {};
+NSB.currentForm = LoginForm;
+NSB.stopOnError = true;
+NSB.enableBrowserArrows = false;
+NSB.enableAppScroll = false;
+NSB.newVersionWarning = false;
+NSB.id = 'Alert';
+NSB.initLanguage();
+NSB.voltAppId = '';
+NSB.voltDashboardAccess = False;
+NSB.voltDomain = '';
+if ($.mobile != undefined) $.mobile.hashListeningEnabled = false;
+
+// ***** Code for form: MainPageFrm *****
+window.addEventListener('load', function() {
+  MainPageFrm.style.display = 'block';
+  NSB.addProperties(MainPageFrm);
+  NavBar.style.lineHeight='40px';
+  NSB.addProperties.addChild(NavBar);
+  NSB.addProperties(NavBar);
+  NSB.bs.addProperties(NavMenu, 'Hamburger_bs');
+  NSB.bs.addProperties(NavBack, 'Button_bs');
+  NSB.addProperties.addChild(NavServerContainer);
+  NSB.addProperties(NavServerContainer);
+
+  MainPageFrm.style.display = 'block';
+}, false);
+
+// ***** Code for form: LoginForm *****
+window.addEventListener('load', function() {
+  LoginForm.style.display = 'block';
+  NSB.addProperties(LoginForm);
+  NSB.bs.addProperties(LoginFormPanel, 'Panel_bs');
+    NSB.bs.addProperties(LoginFormAlert, 'Alert_bs');
+  LoginFormAlert.onclick = function() {LoginFormAlert.hide();};
+  LoginFormUserName.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(LoginFormUserName, 'Input_bs');
+  LoginFormPassword.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(LoginFormPassword, 'Input_bs');
+  DebugServerPort.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(DebugServerPort, 'Input_bs');
+  NSB.bs.addProperties(LoginFormLoginButton, 'Button_bs');
+  NSB.bs.addProperties(LoginFormForgotPasswordButton, 'Button_bs');
+  LoginForm.style.display = 'none';
+}, false);
+
+// ***** Code for form: OrdersListForm *****
+window.addEventListener('load', function() {
+  OrdersListForm.style.display = 'block';
+  NSB.addProperties(OrdersListForm);
+  NSB.bs.addProperties(MainPanel, 'Panel_bs');
+    NSB.addProperties(GridRow2);
+  NSB.addProperties(GridColumn2);
+  NSB.bs.addProperties(ReceiptsListSearchBy, 'Radiobutton_bs');
+  NSB.addProperties(GridColumn2Copy);
+  MainListSearchDateFrom.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(MainListSearchDateFrom, 'Input_bs');
+  MainListSearchDateTo.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(MainListSearchDateTo, 'Input_bs');
+  MainListSearchReceipt.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(MainListSearchReceipt, 'Input_bs');
+  NSB.addProperties(GridColumn12);
+  NSB.bs.addProperties(ReceiptsSearchButton, 'Button_bs');
+  NSB.bs.addProperties(ReceiptsAddButton, 'Button_bs');
+  data = [['Tiger Nixon', 'System Architect', '$320,800'],['Garrett Winters', 'Accountant', '$170,750']];
+  columns = [{title:'Name'}, {title:'Position'}, {title:'Salary'}]
+  NSB.bs.addProperties(MainListSelectList, 'DataTable_bs');
+  MainListSelectList.settings={
+     data: data,
+     info: true,
+     lengthChange: false,
+     lengthMenu: 7,
+     ordering: true,
+     paging: true,
+     searching: false,
+     columns: columns
+  }
+  setTimeout('MainListSelectList.build()',500);
+  OrdersListForm.style.display = 'none';
+}, false);
+
+// ***** Code for form: OrdersEditForm *****
+window.addEventListener('load', function() {
+  OrdersEditForm.style.display = 'block';
+  NSB.addProperties(OrdersEditForm);
+  NSB.bs.addProperties(Panel1, 'Panel_bs');
+    NSB.addProperties(GridRow5);
+  NSB.addProperties(GridColumn6);
+  ReceiptFormLastId.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(ReceiptFormLastId, 'Input_bs');
+  NSB.addProperties(GridColumn7);
+  ReceiptFormReceiptNo.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(ReceiptFormReceiptNo, 'Input_bs');
+  NSB.addProperties(GridRow6);
+  NSB.addProperties(GridColumn8);
+  ReceiptFormPo.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(ReceiptFormPo, 'Input_bs');
+  NSB.addProperties(GridColumn9);
+  ReceiptFormReceiptDate.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(ReceiptFormReceiptDate, 'Input_bs');
+  NSB.addProperties(GridRow7);
+  NSB.addProperties(GridColumn10);
+  NSB.bs.addProperties(ReceiptFormType, 'Select_bs');
+  NSB.addProperties(GridColumn11);
+  ReceiptFormPackingSlipNo.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(ReceiptFormPackingSlipNo, 'Input_bs');
+  NSB.bs.addProperties(SummaryButton1, 'Button_bs');
+  NSB.bs.addProperties(ReceiptEditSaveRiButton, 'Button_bs');
+  NSB.bs.addProperties(ReceiptNotesButton, 'Button_bs');
+  data = [['Tiger Nixon', 'System Architect', '$320,800'],['Garrett Winters', 'Accountant', '$170,750']];
+  columns = [{title:'Name'}, {title:'Position'}, {title:'Salary'}]
+  NSB.bs.addProperties(SummaryTable, 'DataTable_bs');
+  SummaryTable.settings={
+     data: data,
+     info: true,
+     lengthChange: false,
+     lengthMenu: [ 5 ],
+     ordering: false,
+     paging: true,
+     searching: false,
+     columns: columns
+  }
+  setTimeout('SummaryTable.build()',500);
+  OrdersEditForm.style.display = 'none';
+}, false);
+
+// ***** Code for form: OrdersItemForm *****
+window.addEventListener('load', function() {
+  OrdersItemForm.style.display = 'block';
+  NSB.addProperties(OrdersItemForm);
+  NSB.bs.addProperties(SummaryMainSubPanel, 'Panel_bs');
+    NSB.addProperties(GridRow8);
+  NSB.addProperties(GridColumn14);
+  SummarySubPoPos.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(SummarySubPoPos, 'Input_bs');
+  NSB.addProperties(GridColumn15);
+  SummarySubReceiptPos.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(SummarySubReceiptPos, 'Input_bs');
+  SummarySubPartNo.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(SummarySubPartNo, 'Input_bs');
+  SummarySubDescription.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(SummarySubDescription, 'Input_bs');
+  NSB.bs.addProperties(Button4, 'Button_bs');
+  NSB.addProperties(GridRow3);
+  NSB.addProperties(GridColumn3);
+  SummarySubOrdered.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(SummarySubOrdered, 'Input_bs');
+  NSB.addProperties(GridColumn13);
+  NSB.bs.addProperties(SummarySubBtnReceiveAll, 'Button_bs');
+  NSB.addProperties(GridColumn4);
+  SummarySubReceived.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(SummarySubReceived, 'Input_bs');
+  NSB.addProperties(GridColumn5);
+  SummarySubBO.addEventListener('touchmove', function(e) {e.stopPropagation();}, false);
+  NSB.bs.addProperties(SummarySubBO, 'Input_bs');
+  NSB.addProperties(GridRow4);
+  NSB.bs.addProperties(ReceiptItemsSaveToRiButton, 'Button_bs');
+  NSB.bs.addProperties(Inventory, 'Button_bs');
+  NSB.bs.addProperties(ScanAnotherButton, 'Button_bs');
+  OrdersItemForm.style.display = 'none';
+}, false);
+
+
+window.addEventListener('orientationchange', function(){window.scrollTo(0,0)});
+window.addEventListener('load', function() {
+  if (typeof($().i18n) === 'function') $('[data-i18n]').i18n();
+  browserWarningMessage('Please use Google Chrome, Apple Safari or another supported browser.');
+  LoginForm.style.display = 'block';
+  Main();
+  if (typeof(LoginForm.onshow)=='function') LoginForm.onshow();
+}, false);
+</script>
+<script src="code.js"></script>
+
+</body>
+</html>

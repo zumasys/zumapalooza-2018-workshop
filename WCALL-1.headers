@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Date: Sun, 07 Oct 2018 20:27:34 GMT
+Server: jbase_agent
+Cache-control: no-cache
+Content-Length: 1541
+Content-type: application/json
+Cache-Control: no-cache
+restversion: 1.1
+Set-Cookie: wresttestcookie=13273407OCT2018;expires=Mon, 8 Oct 2018 13:32:34; path=/
+Via: 1.1 10.10.17.222
+

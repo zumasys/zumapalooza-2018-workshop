@@ -1,0 +1,21 @@
+*   Trying ::1...
+* TCP_NODELAY set
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 20002 (#0)
+> GET /api/nworders HTTP/1.1
+> Host: localhost:20002
+> User-Agent: curl/7.55.1
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Server: jbase_agent
+< Cache-control: no-cache
+< Connection: close
+< Content-Length: 49310
+< Content-type: application/json
+< Cache-Control: no-cache
+< Access-Control-Allow-Origin: *
+< 
+{ [14404 bytes data]
+* Closing connection 0

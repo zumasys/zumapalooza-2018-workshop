@@ -1,0 +1,108 @@
+{
+  "!type": "Panel_bs", 
+  "appearance": " panel-primary", 
+  "backgroundColor": "", 
+  "badge": "", 
+  "borderColor": "", 
+  "borderStyle": "", 
+  "borderWidth": "", 
+  "bottom": "auto", 
+  "cached_js": "", 
+  "cached_js_script_hash": "d41d8cd98f00b204e9800998ecf8427e", 
+  "children": [
+    {
+      "!type": "External", 
+      "file": [
+        "forms", 
+        "LoginForm", 
+        "Elements", 
+        "LoginFormAlert.json"
+      ]
+    }, 
+    {
+      "!type": "External", 
+      "file": [
+        "forms", 
+        "LoginForm", 
+        "Elements", 
+        "LoginFormUserName.json"
+      ]
+    }, 
+    {
+      "!type": "External", 
+      "file": [
+        "forms", 
+        "LoginForm", 
+        "Elements", 
+        "LoginFormPassword.json"
+      ]
+    }, 
+    {
+      "!type": "External", 
+      "file": [
+        "forms", 
+        "LoginForm", 
+        "Elements", 
+        "DebugServerPort.json"
+      ]
+    }, 
+    {
+      "!type": "External", 
+      "file": [
+        "forms", 
+        "LoginForm", 
+        "Elements", 
+        "LoginFormLoginButton.json"
+      ]
+    }, 
+    {
+      "!type": "External", 
+      "file": [
+        "forms", 
+        "LoginForm", 
+        "Elements", 
+        "LoginFormForgotPasswordButton.json"
+      ]
+    }
+  ], 
+  "class": "", 
+  "color": "", 
+  "display": "", 
+  "expanded_pmp": null, 
+  "fontFamily": "", 
+  "fontSize": "", 
+  "fontStyle": "", 
+  "fontWeight": "", 
+  "footer": "", 
+  "header": "Login", 
+  "height": "auto", 
+  "hidden": "", 
+  "id": "LoginFormPanel", 
+  "left": "auto", 
+  "mAll": "", 
+  "mBottom": "", 
+  "mLeft": "auto", 
+  "mRight": "auto", 
+  "mTop": "", 
+  "onclick": "", 
+  "onmousedown": "", 
+  "onmousemove": "", 
+  "onmouseout": "", 
+  "onmouseup": "", 
+  "onresize": "", 
+  "ontouchend": "", 
+  "ontouchmove": "", 
+  "ontouchstart": "", 
+  "pAll": "", 
+  "pBottom": "", 
+  "pLeft": "", 
+  "pRight": "", 
+  "pTop": "", 
+  "position": "static", 
+  "right": "auto", 
+  "script": "", 
+  "style": "", 
+  "top": "auto", 
+  "value": "", 
+  "width": "350"
+}

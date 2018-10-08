@@ -1,0 +1,236 @@
+#
+# Configuration file for jagent
+#
+
+[MAIN]
+
+; List the services that this instance of jagent will honor.
+; Separate selections with commas. Possible choices are jremote,
+; jodbc and http.
+services=jremote,jodbc,http
+
+; For Linux/Unix/AIX, specify the desired umask for jagent in octal.
+;umask = 0002
+
+#-----------------------------------------------------------------------#
+
+[OPTIONS]
+
+; Set the log level to a value from 0 to 7. Each lower level (except 0)
+; includes all of the higher levels. This duplicates the -L (--logLevel)
+; command line option.
+;  0 = no logging
+;  1 = trace - show code execution flow
+;  2 = debug - mainly useful for debugging jagent
+;  3 = info - show interesting information
+;  4 = notice - show notices
+;  5 = warning - show warnings
+;  6 = errors - show any error conditions
+;  7 = critical - show critical errors only
+loglevel = 4
+
+; Set the authentication mode for jodbc and jremote connections.
+; Available options are none, user or account. This duplicates the
+; -A (--authentication) command line option.
+;
+authentication = none
+
+; If the hostname_lookups option is enabled, a reverse DNS lookup
+; is performed on the IP address of incoming connections. If private
+; IP addresses are used, there may be no reverse DNS available, and
+; the lookup may require up to 5 seconds before it times out. Set
+; this option to 'true' only if you need to resolve incoming IP
+; addresses into actual host names. This option is not available
+; as a command line option.
+hostname_lookups = false
+
+; Disables the "nagle algorithm" for TCP connections. Setting this
+; option to 'true' disables nagle, and may increase performance.
+; This option duplicates the -N command line option.
+tcp_nodelay = true
+
+; Specify the port that jagent will listen on for incoming connections.
+; The default port is 20002. This option duplicates the -p (--port)
+; command line option.
+;port = 20002
+
+; If the server has multiple network interfaces, specify the IP address
+; where jagent will listen for incoming connections. This duplicates
+; the -b (--bind_address) command line option.
+;bind_address = <IP address to listen on>
+
+; For SSL connections, specify the path of the x509 certificate to
+; use. When a certificate is specified, a private key must also be
+; specified. This option duplicates the -c (--certificate) command
+; line option.
+;certificate = <path to certificate (.pem) file>
+
+; For SSL connections, specify the path of the private key for the
+; certificate being used. This option duplicates the -k (--private_key)
+; command line option.
+;private_key = <path to private key (.pem) file>
+
+#-----------------------------------------------------------------------#
+
+; The ENVIRONMENT section is used to set up the jBASE
+; environment. This section automatically expands environment
+; variables found in the value on the right of the equal sign
+; when the variable is prefixed by '$' (Linux) or enclosed by
+; '%' (Windows).
+;
+; You can "include" the standard jbase_env.cmd or jbase_env.sh
+; script by using the !include directive, followed by the path
+; of the script. !include processing is primitive, and any lines
+; in the form of VAR=value, set VAR=value or export VAR=value
+; are treated as environment variables.
+;
+; Before this section is processed, two special environment
+; variables available: APPDIR, referencing the directory where
+; the jagent executable exists (normally, the jBASE bin directory),
+; and CURDIR, which refers to the current directory when jagent
+; was started. 
+
+[ENVIRONMENT]
+
+; Use the standard jbase_env script to set up the jBASE
+; system environment variables.
+!include C:\JBASE\CURRENTVERSION\jbase_env.cmd
+
+; Set up the "account" environment variables.
+HOME=%CURDIR%
+PATH=%HOME%\bin;%PATH%
+JBCOBJECTLIST=%HOME%\lib
+JEDIFILEPATH=%HOME%;
+JEDIFILENAME_MD=%HOME%\MD
+
+; Disable debugger for common errors
+JBASE_ERRMSG_ZERO_USED=2
+JBASE_ERRMSG_NON_NUMERIC=2
+JBASE_ERRMSG_DIVIDE_ZERO=2
+JBASE_ERRMSG_TRACE=0
+JBCEMULATE=d3
+
+; Log runtime errors to $JBCRELEASEDIR/tmp/jbase_error_trace (see documentation before enabling this)
+;JBASE_ERRMSG_TRACE=1
+
+#-----------------------------------------------------------------------#
+
+; The HTTP section defines global options when jagent is used as
+; an HTTP (REST) server.
+
+[HTTP]
+
+; Specify the value of the Cache-Control header when sending
+; static content like html or image files.
+cache_control = public
+
+; By default, when a JBC subroutine is used as the resource for
+; an HPPT request, the query string included on the URL (or in the
+; body when an HTML form is POSTed) is parsed and the query string
+; or form variables are passed in the request_vars and request_vals
+; arguments. If this is not desired, set no_parse_qstring to 'true'. 
+no_parse_qstring=false
+
+maxrequest = 100000000
+
+; Specify the default path to use if the URL path is '/'.
+;default_path = <your default path>
+
+; Specify the default file name to use if the resource
+; path ends in '/'.
+;default_file = <your default file; eg. index.html>
+
+; Specify the HTTP headers to pass to a JBC subroutine. The header names
+; are converted to upper-case, prefixed with "HTTP_" and any dashes (-)
+; are converted to underscores (_). For example, "User-Agent" is passed
+; as "HTTP_USER_AGENT".
+http_headers = Accept,Cookie,Connection,User-Agent,Referer,Orgin,Host,Authorization, AUTHORIZATION,X-AUTHORIZATION,X-Authorization,X-Token
+
+#-----------------------------------------------------------------------#
+
+; The HTTP_RESOURCE section maps a URL path to a server resource.
+; The longest part of the URL path is matched against items in this
+; section. Specify the URL path on left of the equal sign, and the
+; local resource path or JBC subroutine name on the right. Except
+; for the root path, the URL path never ends with a '/'.
+;
+; JBC subroutine resource:
+; The resource name is the name of the subroutine with @ prefix,
+; for example: /myapi=@MYSUB.
+;
+; Local directory:
+; If the local directory path ends with a trailing directory separator
+; ('/' or '\'), the tail of the URL path will be appended to the local
+; directory path to form the final resource file name. If the URL
+; ends with '/', and a default_file is specified in the [HTTP]
+; section, the default file name will be appended to the directory
+; path to form the full path for the resource.
+;
+; Local file:
+; Use the local path for the file to be used as the resource. If the
+; URL path has a tail after the matched path, the tail is ignored.
+
+[HTTP_RESOURCE]
+
+;<URL path> = <@subname>
+;<URL path> = <local directory>
+;<URL path> = <local file>
+;
+; examples:
+;/dbc  = @MY.HTTP.SUB
+;/img  = C:\www\images\
+;
+; Use JAGENTWDBINIT subroutine for REST services
+/api  = @JAGENTWDBINIT
+/apps = C:\Users\patrickp\OneDrive - Zumasys\Apps
+/iis = c:\inetpub\wwwroot\
+#-----------------------------------------------------------------------#
+
+; The HTTP_CONTENT_TYPE section is used to properly process
+; binary or text content received in the body of an HTTP
+; request. The content type on the left of the equal sign
+; is matched with the first segment of the HTTP Content-Type
+; header. Content type includes a sub-type using a slash
+; to separate the main and sub-types. To match any sub-type,
+; specify a '*' as the sub-type. For example,  text/* = text
+; will treat any 'text' content type as text no matter what
+; the sub-type might be.
+;
+; If a content type is defined as text, CR/LF in the request_body
+; argument passed to the JBC subroutine will converted to @AM.
+; Otherwise the request_body argument will be treated as binary
+; data. Any content type not defined will be treated as binary.
+
+[HTTP_CONTENT_TYPE]
+
+text/*           = text
+application/json = text
+application/xml  = text
+
+#-----------------------------------------------------------------------#
+
+;
+; The HTTP_MIME_TYPE section associates file extensions for
+; static content with a "mime type", which is sent in the
+; HTTP response Content-Type header.
+;
+[HTTP_MIME_TYPE]
+.default= "text/html"
+txt     = "text/plain"
+html    = "text/html"
+htm     = "text/html"
+gif     = "image/gif"
+jpg     = "image/jpg"
+jpe     = "image/jpg"
+jpeg    = "image/jpg"
+png     = "image/png"
+swf     = "application/x-shockwave-flash"
+mid     = "audio/midi"
+midi    = "audio/midi"
+kar     = "audio/midi"
+xls     = "application/vnd.ms-excel"
+ppt     = "application/vnd.ms-powerpoint"
+gz      = "application/x-gzip"
+tgz     = "application/x-gzip"
+js      = "application/x-javascript"
+css     = "text/css"

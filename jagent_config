@@ -144,7 +144,7 @@ maxrequest = 100000000
 ; are converted to upper-case, prefixed with "HTTP_" and any dashes (-)
 ; are converted to underscores (_). For example, "User-Agent" is passed
 ; as "HTTP_USER_AGENT".
-http_headers = Accept,Cookie,Connection,User-Agent,Referer,Orgin,Host,Authorization, AUTHORIZATION,X-AUTHORIZATION,X-Authorization,X-Token
+http_headers = Accept,Cookie,Connection,User-Agent,Referer,Orgin,Host,Authorization, AUTHORIZATION,X-AUTHORIZATION,X-Authorization,X-Token,X-API-KEY
 
 #-----------------------------------------------------------------------#
 
