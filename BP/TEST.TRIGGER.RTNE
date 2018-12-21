@@ -1,0 +1,6 @@
+SUBROUTINE TEST.TRIGGER.RTNE(filevar, event, prerc, flags, recordkey, record, userrrc)
+INCLUDE JBC.h
+PRINT event
+V='A'
+PRINT V+0
+RETURN

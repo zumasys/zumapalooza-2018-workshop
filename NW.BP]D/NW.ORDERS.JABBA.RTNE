@@ -1,0 +1,79 @@
+$options jabba
+
+CALL WSETCONTENTTYPE("application/json")
+
+CALL WSETHEADER("Access-Control-Allow-Origin","*")
+
+RESULT.OBJ = NEW OBJECT
+
+REST.STATUS="ok"
+REST.STATUS.MSG=""
+
+OPEN "NW.ORDERS" TO FI.NW.ORDERS ELSE
+    REST.STATUS="error"
+    REST.STATUS.MSG="Could not open NW.ORDERS file"
+    GOTO end.of.call
+END
+
+RESULT.OBJ->records = NEW ARRAY
+
+GOSUB get.orders
+
+end.of.call: *
+
+RESULT.OBJ->apiversion = "1.0"
+RESULT.OBJ->callstatus = REST.STATUS
+RESULT.OBJ->callmessage = REST.STATUS.MSG
+
+JSON=RESULT.OBJ->$tojson(1)
+
+CALL WSEND(JSON)
+
+STOP
+
+get.orders: *
+
+EXECUTE "SSELECT NW.ORDERS BY-DSND ORDERDATE"
+
+CNTR=0
+LOOP
+    READNEXT ID ELSE EXIT
+    CNTR+=1
+    IF CNTR > 50 AND 1 THEN
+        CLEARSELECT
+        EXIT
+    END
+
+    READ ORDER FROM FI.NW.ORDERS, ID ELSE CONTINUE
+    ORDER.OBJ = NEW OBJECT
+
+    ORDER.OBJ->orderid = ID
+    ORDER.OBJ->customerid       = ORDER<1>
+    ORDER.OBJ->employeeid       = ORDER<2>
+    ORDER.OBJ->orderdate        = OCONV(ORDER<3>,"D4-")
+    ORDER.OBJ->requiredate      = OCONV(ORDER<4>,"D4-")
+    ORDER.OBJ->shippedate       = OCONV(ORDER<5>,"D4-")
+
+
+    NUMBER.ITEMS=DCOUNT(ORDER<10>,@VM)
+
+    ORDER.OBJ->items = NEW ARRAY
+
+    FOR V=1 TO NUMBER.ITEMS
+        ITEMS.OBJ = NEW OBJECT
+
+        ITEMS.OBJ->productid   = ORDER<10,V>
+        ITEMS.OBJ->productdesc = OCONV(ORDER<10,V>,"TNW.PRODUCTS;X;;10")
+        ITEMS.OBJ->unitprice   = OCONV(ORDER<11,V>,"MD2")
+        ITEMS.OBJ->quantity    = ORDER<12,V>
+        ITEMS.OBJ->discount    = OCONV(ORDER<13,V>,"MD2")
+ 
+        ORDER.OBJ->items->$append(ITEMS.OBJ)
+    NEXT V
+
+    RESULT.OBJ->records->$append(ORDER.OBJ)
+
+REPEAT
+
+RETURN
+
